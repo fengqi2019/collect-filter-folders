@@ -1,0 +1,11 @@
+[tasks.builds]
+script = '''
+cargo build --release
+'''
+
+[tasks.record]
+script_runner  = "@shell"
+script = '''
+./target/release/collect-filter-folders -p C:\ -s 1
+'''
+dependencies = ["builds"]
